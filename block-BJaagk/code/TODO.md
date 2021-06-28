@@ -62,6 +62,18 @@ let percentage = function (marks, total) {
 };
 ```
 4. Why is a function call an expression in JavaScript?
+```js
+function add(a,b){
+  return a+b;
+}
+function addAgain(a,b){
+ console.log(a+b);
+}
+add(12,13); // 25 is an value from aan expression
+addAgain(12,13) // undefined is an value from an expression
+
+//So function call always returns a value fso called function expression
+```
 
 5. Write VALID and INVALID next to each example below with the reason.
 
@@ -79,10 +91,17 @@ five = function () {
 ```
 
 6. What is the difference between function definition and function call? Explain with an example.
- Function definition is a procedure where execution code is written to achieve a result and function call using the function to achieve the task
-
+ ```js
+ //Function definition is a procedure where execution code is written to achieve a result and function call using the function to achieve the task
+ function add(){} // function definition
+ add() //call
+```
 7. What is the similarities between function definition and function call?
 
+```js
+//Function Definition is an expression(function is an object) 
+//Function call is an expression(function call always returns a value)
+```
 
 8. Is the code below valid or invalid. Explain with reason.
 
@@ -91,11 +110,24 @@ function hello() {
   console.log('Hello World!');
 }
 
-hello.user = 'Sam'; // valid or invalid
+hello.user = 'Sam'; // valid as function is an object
+
 ```
 
 9. What is higher order function explain with an example.
 ```js
 ///Higher order functions are functions that operate on other functions, either by taking them as arguments or by returning them. In simple words, A Higher-Order function is a function that receives a function as an argument or returns the function as output.
+
+function add(cb){ //HOF as it accepts the function 
+  cb()
+}
+function add(){  //HOF as it return the function 
+  function main(){
+    return main 
+  }
+}
 ```
 10. Explain what is callback function. Why you can pass a function inside a function?
+```js
+//because funtion is an expression in js so we can pass a function inside a function?
+```
