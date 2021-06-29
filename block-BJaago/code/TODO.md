@@ -64,6 +64,7 @@ sayHi();
 
 4.
 
+
 ```js
 console.log(arr); // output
 console.log(username); // output
