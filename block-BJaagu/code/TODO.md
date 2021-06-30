@@ -1,7 +1,7 @@
 Find the output of the code snippets below:
 
 ```js
-console.log(numA + numB); //OUTPUT
+console.log(numA + numB); // NaN , undefined + undefined = NaN
 var numA = 21,
   numB = 30;
 ```
@@ -9,7 +9,7 @@ var numA = 21,
 Find the output of the code snippets below:
 
 ```js
-console.log(numA + numB); //OUTPUT
+console.log(numA + numB); //error, not defined
 let numA = 21,
   numB = 30;
 ```
@@ -19,18 +19,18 @@ Find the output of the code snippets below:
 ```js
 let numA = 21,
   numB = 30;
-console.log(numA + numB); //OUTPUT
+console.log(numA + numB); //51
 ```
 
 Find the output of the code snippets below:
 
 ```js
-console.log(sayHello()); // OUTPUT
+console.log(sayHello()); // undefined
 function sayHello() {
   console.log("Hey");
 }
 function sayHello() {
-  console.log("Hello");
+  console.log("Hello"); //Hello
 }
 ```
 
@@ -38,7 +38,7 @@ Find the output of the code snippets below:
 
 ```js
 let username = "Tyrion";
-sayHello(); // OUTPUT
+sayHello(); // OUTPUT Tyrion
 function sayHello() {
   console.log(username);
 }
@@ -47,7 +47,7 @@ function sayHello() {
 Find the output of the code snippets below:
 
 ```js
-sayHello(); // OUTPUT
+sayHello(); // error username is not defined as it is empty in declaration phase because it is let. 
 let username = "Tyrion";
 function sayHello() {
   console.log(username);
@@ -58,7 +58,7 @@ Find the output of the code snippets below:
 
 ```js
 let username = "Tyrion";
-sayHello(); // OUTPUT
+sayHello(); // OUTPUT error,sayHello is not defined
 let sayHello = () => {
   console.log(username);
 };
@@ -67,7 +67,7 @@ let sayHello = () => {
 Find the output of the code snippets below:
 
 ```js
-sayHello(); // OUTPUT
+sayHello(); // OUTPUT error,sayHello is not defined
 let username = "Tyrion";
 let sayHello = () => {
   console.log(username);
@@ -77,7 +77,7 @@ let sayHello = () => {
 Find the output of the code snippets below:
 
 ```js
-sayHello(); // OUTPUT
+sayHello(); // OUTPUT error,sayHello is not defined
 var username = "Tyrion";
 let sayHello = () => {
   console.log(username);
@@ -88,7 +88,7 @@ Find the output of the code snippets below:
 
 ```js
 var username = "Tyrion";
-sayHello(); // OUTPUT
+sayHello(); // OUTPUT OUTPUT error,sayHello is not defined
 let sayHello = () => {
   console.log(username);
 };
@@ -102,7 +102,7 @@ let sayHello = () => {
   console.log(username);
   var username = "John";
 };
-sayHello(); // OUTPUT
+sayHello(); // undefined, as in declaration phase in FEC of sayHello the value of username is set to undefined so in execution phase it will take the nearest value from the memory of sayhello for username = undefined.
 ```
 
 Find the output of the code snippets below:
@@ -113,7 +113,7 @@ let sayHello = () => {
   var username = "John";
   console.log(username);
 };
-sayHello(); // OUTPUT
+sayHello(); //  John
 ```
 
 Find the output of the code snippets below:
@@ -124,5 +124,5 @@ let sayHello = () => {
   console.log(username);
   let username = "John";
 };
-sayHello(); // OUTPUT
+sayHello(); // Cannot access 'username' before initialization
 ```
