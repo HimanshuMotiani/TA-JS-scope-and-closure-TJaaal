@@ -9,12 +9,12 @@ var species = 'human';
 
 function change() {
   var species = 'vampire';
-  console.log(species);
+  console.log(species); //vampire
 }
 
-console.log(species); // 1
+console.log(species); // human
 change();
-console.log(species); // 2
+console.log(species); //human
 ```
 
 <!-- Put your image below -->
@@ -35,8 +35,8 @@ function topLevelFn() {
   function nestedFn() {
     var anotherLocalVar = "Local to nestedFn's scope.";
 
-    console.log(localVar); // 1
-    console.log(topLevelVar); // 2
+    console.log(localVar); //  "This is local to topLevelFn's scope";
+    console.log(topLevelVar); // 'This is global scope!'n 
   }
 
   nestedFn();
@@ -64,16 +64,16 @@ function main() {
   function inner() {
     var four = 'Four';
 
-    console.log(one); // 1
-    console.log(two); // 2
-    console.log(three); // 3
+    console.log(one); // 'One'
+    console.log(two); // 'Two'
+    console.log(three); // 'Three'
   }
-  console.log(four); // 4
+  console.log(four); // error fourp not defined
   inner();
 }
 
 main();
-console.log(one, two, three, four); // 5
+console.log(one, two, three, four); // error three and four not defined
 ```
 
 <!-- Put your image below -->
