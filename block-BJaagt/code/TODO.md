@@ -37,7 +37,7 @@ console.log(useranme); // error username is not defined
 if (true) {
   var username = 'Arya';
 }
-console.log(useranme); // error username is not defined
+console.log(username); // 'Arya'
 ```
 
 5. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -93,7 +93,7 @@ for (var i = 0; i < 10; i++) {
   
 
 }
-console.log(i, 'Second'); // 10 "Second"  , as the value of i is not inside the bracket 
+console.log(i, 'Second'); // 10 "Second"  , as the var is not a block socpe, so it can be accessed outside 
 ```
 
 9. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -112,5 +112,5 @@ for (let i = 0; i < 10; i++) {
   //  9 "First"
  
 }
-console.log(i, 'Second'); // 10 "Second",as the value of i is not inside the bracket 
+console.log(i, 'Second'); // error,as the let is  a block socpe, so it cannot be accessed outside  
 ```
