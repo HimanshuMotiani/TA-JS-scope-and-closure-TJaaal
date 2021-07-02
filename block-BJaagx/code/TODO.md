@@ -55,6 +55,7 @@ function operation(str, opFn) {
   // your code goes her
   return opFn(str);
 }
+
 // TEST
 console.log(
   operation("Learning to fly", function (text) {
