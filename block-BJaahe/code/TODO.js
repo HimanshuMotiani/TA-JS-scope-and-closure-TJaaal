@@ -19,12 +19,13 @@ outer("himanshu");
 
 // Your code goes here
 function delay(cb,time){
-  setTimeout(() => {
-    return cb;
-  }, time);
-}
-delay(delay,1000)
+  return function(){
+    setTimeout(cb,time);
 
+}
+}
+let test  = delay(()=>console.log("Hello"),2000);
+test();
 
 // 3. Write a function with a closure. The first function should only take one argument, someone's last name,
 //  and return the inner function.
@@ -94,8 +95,7 @@ function forEach(arr) {
   let index = 0;
 function arrIndex(){
   if(index< arr.length){
-  index = index + 1;
-  return index; 
+  return arr[index++]; 
   }
 } 
   return arrIndex;
@@ -180,6 +180,7 @@ function  nameFactory(firstName, lastName){
       return name + ' ' + lastName
     },
     setLastName: (lastName)=>{
+      lName = lastName
       return  fName+ ' ' + lastName
     },
   }
