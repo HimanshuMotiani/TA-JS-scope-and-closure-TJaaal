@@ -64,7 +64,25 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+//Declaration Phase
+var username = undefined;
+let number;
+
+function sayHello(name) {
+  return `Hello ${name}`;
+}
+
+let message;
+var nextMessage = undefined;
+
+//Execution Phase
+console.log(username, numbers);
+
+username = 'Arya';
+number = 21;
+
+message = sayHello(username);
+nextMessage = sayHello('Test');
 ```
 
 3.
@@ -86,6 +104,29 @@ var nextMessage = sayHello('Test');
 
 ```js
 // Your code goes here
+//Declaration Phase
+
+let username;
+let number;
+
+let sayHello;
+
+let message;
+var nextMessage= undefined;
+
+
+//Execution Phase
+console.log(username, numbers);
+username = 'Arya';
+number = 21;
+
+sayHello = function (name) {
+  return `Hello ${name}`;
+};
+
+message = sayHello(username);
+nextMessage = sayHello('Test');
+
 ```
 
 4.
@@ -108,10 +149,31 @@ var nextMessage = sayHello('Test');
 
 ```js
 // Your code goes here
+
+//Declaration Phase
+let username;
+let number;
+let message;
+
+let sayHello;
+
+var nextMessage = undefined;
+
+//Execution Phase
+username = 'Arya';
+console.log(username, numbers);
+
+number = 21;
+message = sayHello(username);
+
+sayHello = function (name) {
+  return `Hello ${name}`;
+};
+
+nextMessage = sayHello('Test');
 ```
 
 5.
-
 ```js
 console.log(name);
 console.log(age);
@@ -123,10 +185,18 @@ let age = 21;
 
 ```js
 // Your code goes here
+//Declaration Phase
+var name = undefined;
+let age;
+
+//Execution Phase
+console.log(name);
+console.log(age);
+name = 'Lydia';
+age = 21;
 ```
 
 6.
-
 ```js
 function sayHi(name) {
   console.log(name);
@@ -142,6 +212,23 @@ sayHi();
 
 ```js
 // Your code goes here
+//Declaration Phase
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+//Execution Phase
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+sayHi();
 ```
 
 7.
@@ -178,6 +265,18 @@ let sayHi = function sayHi(name) {
 
 ```js
 // Your code goes here
+//Declaration Phase
+let sayHi;
+
+//Execution Phase
+sayHi();
+let sayHi = function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+};
+
 ```
 
 9.
