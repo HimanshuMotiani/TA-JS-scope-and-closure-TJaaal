@@ -84,20 +84,29 @@ console.log(storyOfMyLife.erase());
 
 // 5. Create a function named `forEach` which accepts one parameter an array. Inside the function `forEach` there a variable named `index` which is initialized to `0`.
 
-// When `forEach` function is called it returns another function. When the returned function is called it returns the element from the array at specific index. Every time you call the returned function the value of index should increment.
+// When `forEach` function is called it returns another function. 
+//When the returned function is called it returns the element from the array at specific index. 
+//Every time you call the returned function the value of index should increment.
 
 
-function forEach() {
+function forEach(arr) {
   // Your code goes here
+  let index = 0;
+function arrIndex(){
+  if(index< arr.length){
+  index = index + 1;
+  return index; 
+  }
+} 
+  return arrIndex;
 }
-
-let next = [1, 2, 3, 4, 5];
+let val = [1, 2, 3, 4, 5];
+let next = forEach(val);
 next(); // 1
 next(); // 2
 next(); // 3
 next(); // 4
 next(); // 5
-
 
 // 6. Create a function named `addDesignation` which accepts a `title` and returns another function.
 
@@ -106,14 +115,18 @@ next(); // 5
 
 function addDesignation(title) {
   // your code goes here
+  function designation(str){
+return str + ' ' + title
+  }
+  return designation;
 }
 
 let sales = addDesignation('Salesman');
-sales('Main'); // Main Salesman
+console.log(sales('Main')); // Main Salesman
 
 let manager = addDesignation('Manager');
-manager('Regional'); // Regional Manager
-manager('Head'); // Head Manager
+console.log(manager('Regional')); // Regional Manager
+console.log(manager('Head')); // Head Manager
 
 
 // 7. Create a function named `changeSalary` which accepts `currentSalary` (number) and returns an object that contains three methods
@@ -123,8 +136,21 @@ manager('Head'); // Head Manager
 // - `current` will return the current salary returns the updated salary
 
 
-function changeSalary() {
+function changeSalary(currentSalary) {
   // Your code goes here
+  return {
+    raise: ()=>{
+       currentSalary += 500;
+      return currentSalary
+    },
+    lower: ()=>{
+       currentSalary -= 500;
+      return currentSalary
+    },
+    current:()=>{
+      return currentSalary
+    }
+  }
 }
 
 let sam = changeSalary(2000);
@@ -142,11 +168,28 @@ arya.lower(); // 3500
 
 
 // Your code goes here
+function  nameFactory(firstName, lastName){
+  let fName = firstName;
+  let lName = lastName;
+  return {
+    getFullName: ()=>{
+     return fName + ' ' + lName
+    },
+    setFirstName: (name)=>{
+      fName = name;
+      return name + ' ' + lastName
+    },
+    setLastName: (lastName)=>{
+      return  fName+ ' ' + lastName
+    },
+  }
 
-let arya = nameFactory('Arya', 'Stark');
-arya.getFullName(); // "Arya Stark"
-arya.setFirstName('Jon'); // "Jon Stark"
-arya.setLastName('Lannister'); // "Jon Lannister"
+}
+
+let aryas = nameFactory('Arya', 'Stark');
+console.log(aryas.getFullName()); // "Arya Stark"
+console.log(aryas.setFirstName('Jon')); // "Jon Stark"
+console.log(aryas.setLastName('Lannister')); // "Jon Lannister"
 
 
 // 9. Create a function named `createTag` which accepts an HTML element name and returns another function.
@@ -154,13 +197,17 @@ arya.setLastName('Lannister'); // "Jon Lannister"
 // The returned function accepts a string (children) and returns the children with the tag you passed.
 
 
-function createTag() {
+function createTag(tag) {
   // your code goes here
+  function attachContent(str){
+   return `<${tag}>${str}</${tag}>`
+  }
+  return attachContent;
 }
 
 let bold = createTag('b');
-bold('Hello World!'); // <b>Hello World!</b>
+console.log(bold('Hello World!')); // <b>Hello World!</b>
 
 let italic = createTag('i');
-italic('Hello World!'); // <i>Hello World!</i>
+console.log(italic('Hello World!')); // <i>Hello World!</i>
 
