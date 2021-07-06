@@ -90,6 +90,8 @@ function union(...arrays) {
   }
   return first;
 }
+//or
+//first.filter(ele=>{ return !arrayy[i].includes(ele)}).concat(arrays[i])
 
 // Test
 console.log(
