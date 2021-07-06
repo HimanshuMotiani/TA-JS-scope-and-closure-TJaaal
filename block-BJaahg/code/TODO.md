@@ -13,7 +13,9 @@ console.log(
   window.firstName,
   window.lastName,
   window.knownAs
-);
+); 
+//undefined undefined "no one"
+
 ```
 
 2. Guess the output:
@@ -28,6 +30,7 @@ function fullName(a, b) {
 }
 
 console.log(window.fullName(firstName, lastName));
+//AryaStark
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
@@ -38,7 +41,7 @@ fucntion addOne(num){
 }
 var one = addOne(0);
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two); // 1 2
 ```
 
 4. Make a Execution Context Diagram for the following JS and write the output.
@@ -49,7 +52,7 @@ fucntion addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two); // 1 2
 ```
 
 5. Make a Execution Context Diagram for the following JS and write the output.
@@ -60,24 +63,24 @@ fucntion addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(two);
+console.log(two); // 1 2
 ```
 
 6. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-var one = addOne(0);
+var one = addOne(0); // Cannot access 'addOne' before initialization 
 const addOne = (num) => {
   return num + 1;
 };
 var two = addOne(1);
-console.log(two);
+console.log(two); // 2
 ```
 
 7. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-console.log(addOne(0));
+console.log(addOne(0));  //Cannot access 'addOne' before initialization
 const addOne = (num) => {
   return num + 1;
 };
@@ -95,7 +98,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome(); //undefined
 ```
 
 9. What will be the output of the following
@@ -108,7 +111,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome(); //true
 ```
 
 10. What will be the output of the following
@@ -121,7 +124,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome(); //undefined
 ```
 
 11. What will be the output of the following
@@ -135,7 +138,7 @@ function fullName(a, b) {
   return a + b;
 }
 const name = fullName(firstName, lastName);
-console.log(name);
+console.log(name); //AryaStark
 ```
 
 12. Guess the output of the code below with a reason.
@@ -146,7 +149,7 @@ function sayHello() {
 }
 sayHello();
 
-console.log(name);
+console.log(name); //Empty string
 ```
 
 13. Guess the output of the code below with a reason.
@@ -155,7 +158,7 @@ console.log(name);
 if (true) {
   var name = 'Arya Stark';
 }
-console.log(name);
+console.log(name); //Arya Stark
 ```
 
 14. Guess the output of the code below with a reason.
@@ -164,7 +167,7 @@ console.log(name);
 if (true) {
   let name = 'Arya Stark';
 }
-console.log(name);
+console.log(name); // Arya Stark
 ```
 
 15. Guess the output of the code below with a reason.
@@ -173,7 +176,7 @@ console.log(name);
 for (var i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i);  //20
 ```
 
 16. Guess the output of the code below with a reason.
@@ -182,7 +185,7 @@ console.log(i);
 for (let i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i); //i not defined
 ```
 
 17. Guess the output and the reason behind that.
@@ -194,7 +197,7 @@ function sample() {
   }
   console.log(username);
 }
-sample();
+sample(); //John Snow
 ```
 
 18. Guess the output and the reason behind that.
@@ -204,8 +207,8 @@ function sample() {
   if (true) {
     let username = 'John Snow';
   }
-  console.log(username);
-}
+  console.log(username); //username not defined
+} 
 sample();
 ```
 
@@ -220,7 +223,8 @@ function sample() {
   }
   console.log(username, 'second');
 }
-sample();
+sample(); //John Snow
+// John Snow second
 ```
 
 20. Guess the output and the reason behind that.
@@ -234,7 +238,8 @@ function sample() {
   }
   console.log(username, 'second');
 }
-sample();
+sample(); //John Snow first
+// Arya Stark second
 ```
 
 21. Guess the output and the reason behind that.
@@ -248,6 +253,9 @@ function sample(...args) {
 }
 
 sample('First', 'Second', 'Third');
+// Hello I am First
+// Hello I am Second
+// Hello I am Third
 ```
 
 22. Guess the output and the reason behind that.
@@ -261,6 +269,9 @@ function sample(...args) {
 }
 
 sample('First', 'Second', 'Third');
+// Hello I am First
+// Hello I am Second
+// Hello I am Third
 ```
 
 23. Guess the output and the reason behind that.
@@ -270,7 +281,7 @@ if (true) {
   const myFunc = function () {
     console.log(username, 'Second');
   };
-  console.log(username, 'First');
+  console.log(username, 'First'); //error
   let username = 'Hello World!';
   myFunc();
 }
@@ -283,7 +294,7 @@ function outer() {
   let movie = 'Mad Max: Fury Road';
   function inner() {
     console.log(
-      `I love this movie called ${movie.toUpperCase()}`
+      `I love this movie called ${movie.toUpperCase()}` //I love this movie called MAD MAX: FURY ROAD
     );
   }
   inner();
@@ -300,7 +311,7 @@ function outer() {
   function inner() {
     let movie = 'Before Sunrise';
     console.log(
-      `I love this movie called ${movie.toUpperCase()}`
+      `I love this movie called ${movie.toUpperCase()}` //I love this movie called BEFORE SUNRISE
     );
   }
   inner();
@@ -319,7 +330,7 @@ function outer() {
     function extraInner() {
       let movie = 'Gone Girl';
       console.log(
-        `I love this movie called ${movie.toUpperCase()}`
+        `I love this movie called ${movie.toUpperCase()}` //I love this movie called GONE GIRL
       );
     }
     extraInner();
@@ -353,6 +364,9 @@ let allFunctions = [
   multiplyThree,
   half,
 ];
-
+allFunctions.reduce((acc,cv)=>{
+  acc = cv(acc);
+  return acc;
+},100)
 // Answer is: 447
 ```
