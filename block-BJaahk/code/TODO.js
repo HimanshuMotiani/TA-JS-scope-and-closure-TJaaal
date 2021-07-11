@@ -33,16 +33,16 @@
 function multipleCensor() {
   let obj = {};
   //  Your code goes here
-  return function (word1,word2) {
+  return function (word1, word2) {
     if (word2 != undefined) {
       obj[word1] = word2;
     }
     else {
       for (const property in obj) {
         if (word1.includes(property))
-        word1 = word1.replace(property, obj[property])
+          word1 = word1.replace(property, obj[property])
       }
-return word1;
+      return word1;
     }
   }
 }
@@ -69,7 +69,7 @@ Returns: "Never remember what you are. The rest of the world will not. Wear it l
 // The returned value from the callback function will be stored inside an object.
 //  The key will be the parameter and the value will be the output of the callback function. 
 //  It will also return the returned value from the callback function.
-
+// the reason for the wordpress is that it is o
 // - If the parameter is the same as the password it will return the object in which we stored the values.
 
 // ```js
@@ -86,7 +86,7 @@ Returns: "Never remember what you are. The rest of the world will not. Wear it l
 //       return obj;
 
 //   }
-  
+
 // }
 
 // function add10(num) {
@@ -108,31 +108,29 @@ Returns: "Never remember what you are. The rest of the world will not. Wear it l
 //  Otherwise call the callback function with the parameter.
 
 // ```js
-function createCache(cb,str) {
+function createCache(cb, str) {
   let obj = {};
   // Your code goes here
-  return function(val){
-    if(val != str){
-      if(obj && Object.keys(obj).length === 0){
+  return function (val) {
+    if (val != str) {
+      if (obj && Object.keys(obj).length === 0) {
         let result = cb(val)
-      obj[val] = result;
-      for (const property in obj) {
-        if (val == property){
-        return obj[property];
+        obj[val] = result;
+        for (const property in obj) {
+          if (val == property) {
+            return obj[property];
+          }
+          else {
+            return result;
+          }
+        }
       }
-      else {
-        
-      return result;
-      }
+      else if (val == str)
+        return obj;
+
     }
   }
-    else if(val == str)
-      return obj;
-
-  }
 }
-}
-
 function add10(num) {
   return num + 10;
 }
