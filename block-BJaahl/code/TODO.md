@@ -74,7 +74,6 @@ function nTimes(cb, times, ...rest) {
       count++
     cb(...rest);
     }
-    
   }
 }
 
