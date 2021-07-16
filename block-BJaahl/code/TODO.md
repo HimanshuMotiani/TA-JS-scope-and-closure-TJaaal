@@ -52,7 +52,7 @@ function once(cb,...n) {
   return ()=>{
     if(!completed){
       completed = true;
-    cb()
+    cb(...n)
   };
 }
 }
@@ -70,8 +70,9 @@ function nTimes(cb, times, ...rest) {
   // your code goes here
   count = 0
   return function (){
-    if(count<3){
-    cb(rest);
+    if(count<times){
+      count++
+    cb(...rest);
     }
     
   }
