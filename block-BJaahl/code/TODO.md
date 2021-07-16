@@ -3,6 +3,13 @@
 ```js
 function once(cb) {
   // your code goes here
+  var completed = false;
+  return function(){
+    if(!completed){
+      completed = true;
+      cb();
+    }
+  };
 }
 
 // TEST
@@ -17,10 +24,15 @@ log(); // return undefinde (can't be called twice)
 2. Change the above function in such a way that the function accepts two parameter a callback function and parameter for the callback function. When calling the function pass the parameters.
 
 ```js
-function once(cb) {
+function once(cb,str) {
   // your code goes here
+  var completed = false
+  return ()=>{
+    if(!completed){
+      completed = true;
+    cb(str)};
 }
-
+}
 // TEST
 let log = once(console.log, 'Hello Console');
 log(); // log message "Hello Console"
@@ -28,14 +40,21 @@ log(); // return undefinde (can't be called twice)
 ```
 
 3. Change the above function in such a way that it can accept `n` number of parameters for the callback function.
-
+ 
 **For handling `n` number of parameter use `rest` parameters `...` or predefined arguments variable present in every function declaration.**
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 ```js
-function once(cb) {
+function once(cb,...n) {
   // your code goes here
+   var completed = false
+  return ()=>{
+    if(!completed){
+      completed = true;
+    cb()
+  };
+}
 }
 
 // TEST
@@ -49,6 +68,13 @@ log(); // return undefinde (can't be called twice)
 ```js
 function nTimes(cb, times, ...rest) {
   // your code goes here
+  count = 0
+  return function (){
+    if(count<3){
+    cb(rest);
+    }
+    
+  }
 }
 
 // TEST
