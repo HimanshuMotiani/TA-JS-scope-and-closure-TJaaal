@@ -86,7 +86,6 @@ Returns: "Never remember what you are. The rest of the world will not. Wear it l
 //       return obj;
 
 //   }
-
 // }
 
 // function add10(num) {
@@ -116,32 +115,43 @@ function createCache(cb, str) {
       if (obj && Object.keys(obj).length === 0) {
         let result = cb(val)
         obj[val] = result;
-        for (const property in obj) {
-          if (val == property) {
-            return obj[property];
-          }
-          else {
-            return result;
-          }
-        }
+        return result;
       }
-      else if (val == str)
-        return obj;
-
+      else {
+        Object.keys(obj).find(key => {
+          if(key === val){
+            return obj[key];
+          }
+          else{
+                        result = cb(val)
+                        obj[val] = result;
+                        return result;
+                      }
+        });
+// } {
+//           // if (val == property) {
+//           //   return obj[property];
+//           // }
+//           // 
+//         }
+      }
+    }
+    else{
+      return obj;
     }
   }
 }
-function add10(num) {
-  return num + 10;
-}
+  function add10(num) {
+    return num + 10;
+  }
 
-let addCache = createCache(add10, 'foo');
+  let addCache = createCache(add10, 'foo');
 
-console.log(addCache(12)); // 22
-console.log(addCache(100)); // 110
-console.log(addCache(100)); // 110 (callback should not be called)
-console.log(addCache(100)); // 110 (callback should not be called)
-console.log(addCache(1)); // 11
+  console.log(addCache(12)); // 22
+  console.log(addCache(100)); // 110
+  console.log(addCache(100)); // 110 (callback should not be called)
+  console.log(addCache(100)); // 110 (callback should not be called)
+  console.log(addCache(1)); // 11
 
-console.log(addCache('foo')); // {12: 22, 100: 110, 1: 11}
-// ```
+  console.log(addCache('foo')); // {12: 22, 100: 110, 1: 11}
+
