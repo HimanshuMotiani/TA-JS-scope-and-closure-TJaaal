@@ -5,21 +5,21 @@
 // The returned function accepts a sentence. If the sentence contains the `fromWord` it should be replaced with `toWord`. Finally when the returned function is called it should return the new sentence.
 
 // ```js
-// function censor(fromWord, toWord) {
-//   //  Your code goes here
-//   return function(sentence){
-// if(sentence.includes(fromWord)){
-// sentence = sentence.replace(fromWord,toWord)
-// return sentence;
-// }
-//   }
-// }
+function censor(fromWord, toWord) {
+  //  Your code goes here
+  return function(sentence){
+if(sentence.includes(fromWord)){
+sentence = sentence.replace(fromWord,toWord)
+return sentence;
+}
+  }
+}
 
-// let censorSentence = censor('World', 'Sam');
-// console.log(censorSentence('Hello World')); // Hello Sam
+let censorSentence = censor('World', 'Sam');
+console.log(censorSentence('Hello World')); // Hello Sam
 
-// let censorQuote = censor('die', 'live');
-// console.log(censorQuote(`all men must die`)); // all men must live
+let censorQuote = censor('die', 'live');
+console.log(censorQuote(`all men must die`)); // all men must live
 // ```
 
 // // 2. Create a function named `multipleCensor` which does not accept any parameter and returns a function.
@@ -73,32 +73,32 @@ Returns: "Never remember what you are. The rest of the world will not. Wear it l
 // - If the parameter is the same as the password it will return the object in which we stored the values.
 
 // ```js
-// function createCache(cb,str) {
-//   let obj = {};
-//   // Your code goes here
-//   return function(val){
-//     if(val != str){
-//     let result = cb(val)
-//     obj[val] = result;
-//     return result;
-//     }
-//     else(val == str)
-//       return obj;
+function createCache(cb,str) {
+  let obj = {};
+  // Your code goes here
+  return function(val){
+    if(val != str){
+    let result = cb(val)
+    obj[val] = result;
+    return result;
+    }
+    else(val == str)
+      return obj;
 
-//   }
-// }
+  }
+}
 
-// function add10(num) {
-//   return num + 10;
-// }
+function add10(num) {
+  return num + 10;
+}
 
-// let addCache = createCache(add10, 'foo');
+let addCache = createCache(add10, 'foo');
 
-// console.log(addCache(12)); // 22
-// console.log(addCache(100)); // 110
-// console.log(addCache(1)); // 11
+console.log(addCache(12)); // 22
+console.log(addCache(100)); // 110
+console.log(addCache(1)); // 11
 
-// console.log(addCache('foo')); // {12: 22, 100: 110, 1: 11}
+console.log(addCache('foo')); // {12: 22, 100: 110, 1: 11}
 // ```
 
 // 4. Change the above function in such a way that when the returned function is called with any other value than password.
@@ -107,51 +107,38 @@ Returns: "Never remember what you are. The rest of the world will not. Wear it l
 //  Otherwise call the callback function with the parameter.
 
 // ```js
-function createCache(cb, str) {
+
+function createCache(cb,str) {
   let obj = {};
   // Your code goes here
-  return function (val) {
-    if (val != str) {
-      if (obj && Object.keys(obj).length === 0) {
-        let result = cb(val)
-        obj[val] = result;
-        return result;
-      }
-      else {
-        Object.keys(obj).find(key => {
-          if(key === val){
-            return obj[key];
-          }
-          else{
-                        result = cb(val)
-                        obj[val] = result;
-                        return result;
-                      }
-        });
-// } {
-//           // if (val == property) {
-//           //   return obj[property];
-//           // }
-//           // 
-//         }
-      }
+  return function(val){
+    if(val != str){
+        if(obj.hasOwnProperty(val)){
+          return obj[val];
+        }
+        else{
+          let result = cb(val)
+          obj[val] = result;
+          return result;
+        }
+    
     }
-    else{
+    else(val == str)
       return obj;
-    }
+
   }
 }
-  function add10(num) {
-    return num + 10;
-  }
 
-  let addCache = createCache(add10, 'foo');
+function add10(num) {
+  return num + 10;
+}
 
-  console.log(addCache(12)); // 22
-  console.log(addCache(100)); // 110
-  console.log(addCache(100)); // 110 (callback should not be called)
-  console.log(addCache(100)); // 110 (callback should not be called)
-  console.log(addCache(1)); // 11
+let addCache = createCache(add10, 'foo');
 
-  console.log(addCache('foo')); // {12: 22, 100: 110, 1: 11}
+console.log(addCache(12)); // 22
+console.log(addCache(100)); // 110
+console.log(addCache(100)); // 110 (callback should not be called)
+console.log(addCache(100)); // 110 (callback should not be called)
+console.log(addCache(1)); // 11
 
+console.log(addCache('foo')); // {12: 22, 100: 110, 1: 11}
