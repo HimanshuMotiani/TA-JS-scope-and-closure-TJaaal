@@ -3,12 +3,11 @@
 ```js
 function intersection(...arrays) {
   let first = arrays[0];
-for(i =1;i<arrays.length;i++){
-  first = first.filter(element => {
-  return arrays[i].includes(element);
- });
-}
-return first;
+return arrays.reduce((acc,cv)=>{
+      acc = acc.filter(ele=>
+        cv.includes(ele))
+        return acc;
+    })
 
 }
 
@@ -26,15 +25,14 @@ console.log(
 
 ```js
 function union(...arrays) {
-    let first = arrays[0];
-  for(i =1;i<arrays.length;i++){
-    first = first.concat(arrays[i].filter(element => {
-    return !first.includes(element);
-   }));
-  }
-  return first;
+    return arrays.reduce((acc,cv)=>{
+      acc = acc.concat(cv.filter(element => {
+     !acc.includes(element);
+return acc;
+    })
+    });
 }
-
+ 
 
 // Test
 console.log(
